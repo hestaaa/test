@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: metrix-srv
+  name: metrix-web
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -24,8 +24,8 @@ spec:
     namespace: metrix
     server: 'https://kubernetes.default.svc'
   source:
-    repoURL: https://gitlab.x5.ru/DevOps/internal-projects/metrix-project/metrix.git
-    targetRevision: master
+    repoURL: https://github.com/hestaaa/test.git
+    targetRevision: main
     path: helm
     helm:
       valueFiles:

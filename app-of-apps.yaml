@@ -7,7 +7,7 @@ spec:
     name: in-cluster
     namespace: argocd
   source:
-    path: app_of_apps/app
-    repoURL: 'https://gitlab.x5.ru/DevOps/platform.git'
+    path: apps
+    repoURL: 'https://github.com/hestaaa/test.git'
     targetRevision: main
   project: default

@@ -24,7 +24,7 @@ spec:
     namespace: metrix
     server: 'https://kubernetes.default.svc'
   source:
-    repoURL: https://gitlab.x5.ru/DevOps/internal-projects/metrix-project/gitinfo.git
+    repoURL: https://github.com/hestaaa/test.git
     targetRevision: main
     path: helm
     helm:
