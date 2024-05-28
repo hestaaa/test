@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitinfo
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: metrix
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+    retry:
+      limit: 2
+      backoff:
+        duration: 2s
+        factor: 2
+        maxDuration: 1m
+  destination:
+    namespace: metrix
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: https://gitlab.x5.ru/DevOps/internal-projects/metrix-project/gitinfo.git
+    targetRevision: main
+    path: helm
+    helm:
+      valueFiles:
+        - values.yaml
